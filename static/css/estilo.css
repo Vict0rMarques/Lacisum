@@ -1,0 +1,389 @@
+.fundo_FFFFFF {
+    background-color: #FFFFFF
+}
+
+.fundo_C2C2C2 {
+    background-color: #c2c2c2
+}
+
+.fundo_777777 {
+    background-color: #777777
+}
+
+.fundo_3E3E3E {
+    background-color: #3E3E3E
+}
+
+.fundo_2B2B2B {
+    background-color: #2B2B2B
+}
+
+.fundo_181818 {
+    background-color: #181818
+}
+
+.fundo_000000 {
+    background-color: #000000
+}
+
+.fundo_A570D4 {
+    background-color: #A570D4
+}
+
+.fundo_5B2A86 {
+    background-color: #5B2A86
+}
+
+.fundo_FFC700 {
+    background-color: #FFC700
+}
+
+.hover_FFC700:hover {
+    background-color: #FFC700
+}
+
+.hover_181818:hover {
+  background-color: #181818
+}
+
+.hover_000000:hover {
+    background-color: #000000
+}
+
+.hover_A570D4:hover {
+    background-color: #A570D4;
+}
+
+.cor_A570D4 {
+    color: #A570D4
+}
+
+.cor_5B2A86 {
+    color: #5B2A86
+}
+
+.cor_ffffff {
+    color: #ffffff
+}
+
+.cor_000000 {
+    color: #000000
+}
+
+.borda_3E3E3E {
+    border: 1px solid #3E3E3E
+}
+
+.borda_000000 {
+    border: 3px solid #000000
+}
+
+.borda_esquerda_roxa {
+  border-left: 8px solid #A570D4;
+}
+
+.borda_superior_roxa {
+  border-top: 14px solid #5B2A86;
+}
+
+.borda_na_direita {
+  border-radius: 0 10px 10px 0;
+}
+
+.borda_na_esquerda {
+  border-radius: 10px 0 0 10px;
+}
+
+.hover_A570D4:hover {
+    background-color: #A570D4;
+    border-color: #A570D4
+}
+
+.hover_3E3E3E:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF
+}
+
+.icone_branco {
+    color: #FFFFFF
+}
+
+.icone_A570D4 {
+    color: #A570D4
+}
+
+.accordion{
+  border-color:#000000;
+}
+
+.accordion-item{
+  background-color: #3E3E3E;
+  border-color:#3E3E3E;
+  color: white
+}
+
+.accordion-button{
+  background-color: #000000;
+  color: #FFFFFF
+}
+
+.text_decoration {
+    text-decoration: none;
+}
+
+.btn-custom-width {
+    width: 300px;
+    /* Ajuste a largura conforme necessário */
+}
+
+.perfil_usuario {
+  width: 90%;
+  max-width: 450px;
+  background: #3E3E3E;
+  color: white
+}
+
+.capa_perfil {
+  display: block;
+  width: 100%;
+}
+
+.foto_perfil {
+  width: 140px;
+  border-radius: 50%;
+  margin-top: -70px;
+}
+
+.corpo_da_pagina {
+    margin-top: 120px;
+}
+
+.botoes_de_navegacao {
+    position: fixed;
+    z-index: 2
+}
+
+.alinhar_direita {
+    text-align: right;
+    color: white;
+}
+
+
+.icon {
+    font-size: 25px;
+    /* Tamanho da fonte */
+    width: 200px;
+    /* Largura */
+    height: 50px;
+    /* Altura */
+    color: #A570D4;
+    /* Cor do texto */
+    border: none;
+    /* Remova a borda */
+    position: center
+}
+
+.icon2 {
+    font-size: 25px;
+    /* Tamanho da fonte */
+    width: 200px;
+    /* Largura */
+    height: 50px;
+    /* Altura */
+    color: #FFFFFF;
+    /* Cor do texto */
+    border: none;
+    /* Remova a borda */
+    position: center
+}
+
+.custom-btn {
+    width: 300px;
+    /* Largura fixa */
+    height: 50px;
+    /* Altura fixa */
+    font-size: 20px;
+    /* Tamanho da fonte */
+    position: fixed;
+}
+
+.custom-criar {
+    font-size: 15px;
+    position: fixed;
+    bottom: 13px;
+    right: 10px;
+}
+
+.dropdowncofing {
+    font-size: 16px;
+    /* Tamanho da fonte dos itens da lista suspensa */
+    width: 300px;
+    /* Largura dos itens da lista suspensa */
+}
+
+.post {
+    border: 3px solid #000000;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.post .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.post .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* Alinhar o texto à direita */
+.post-content {
+    overflow: hidden;
+    /* Para clearfix */
+}
+
+.custom-bg-color {
+    background-color: #ffcc00;
+    /* Substitua pela cor desejada em formato hexadecimal, RGB ou nome de cor */
+}
+
+/* Estilo padrão do ícone */
+.icon3 {
+    color: white;
+    /* Cor padrão do ícone */
+}
+
+.custom-text {
+    color: white;
+    /* Substitua pela cor desejada */
+}
+
+
+.fundo_313030 {
+    background-color: #313030
+}
+
+.hover_313030:hover {
+    background-color: #313030
+}
+
+
+.hover_FFFFFF:hover {
+    color: #FFFF
+}
+
+.hover_fundo:hover {
+    color: #A570D4
+}
+
+.custom-rounded-btn {
+    border-radius: 25px;
+    /* Ajuste o valor conforme necessário */
+}
+
+.modal-content {
+    background-color: #2B2B2B;
+    color: #ffffff;
+}
+
+.custom-modal-title {
+    color: #A570D4;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.capa {
+    width: 1350px;
+    height: 400px;
+}
+
+.club-title {
+    font-size: 50px;
+    display: flex;
+    align-items: flex-end;
+    color: #ffffff;
+}
+
+.biografia {
+    color: #8C49C7;
+}
+
+.biotex {
+    color: #ffffff;
+}
+
+.fundoclub {
+    background-color: #2B2B2B;
+}
+
+.icondesc {
+    font-size: 20px;
+    /* Tamanho da fonte */
+    width: 200px;
+    /* Largura */
+    height: 50px;
+    /* Altura */
+    color: #A570D4;
+    /* Cor do texto */
+    border: none;
+    /* Remova a borda */
+    position: center
+}
+
+.highlighted-text {
+    background-color: #A570D4;
+    /* Cor de fundo personalizada (laranja em formato hexadecimal) */
+    padding: 5px;
+    /* Espaçamento interno */
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    /* Ajuste o valor conforme necessário */
+}
+
+.blur {
+    background-color: none;
+    backdrop-filter: blur(50px)
+}
+
+.custom-column {
+    background-color: #D9D9D9;
+    color: #000000;
+    position: fixed;
+    top: 130px;
+    right: 10px;
+    /* Alinhar à direita */
+    bottom: 30px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.colortit {
+    color: #8C49C7;
+}
+
+.custom-criar1 {
+    font-size: 15px;
+    position: fixed;
+    bottom: 13px;
+    right: 30px;
+}
+
+.custom-criar2 {
+    font-size: 15px;
+    position: fixed;
+    bottom: 13px;
+    right: 170px;
+}

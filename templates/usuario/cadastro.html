@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <title>Lacisum - Cadastro</title>
+</head>
+
+<body class="fundo_5B2A86">
+  
+    <img src="/static/img/Cadastro/FundoCadastro.png" class="position-absolute top-50 start-50 translate-middle --bs-secondary-color rounded-3 shadow-lg">
+
+    <div class="position-absolute top-50 start-50 translate-middle row">
+        <div class="top-50 col-7">
+            <h5 class="cor_A570D4">
+                CADASTRE-SE DE GRAÇA
+            </h5>
+            <h1 class="text-light text-start">
+                Lacisum
+            </h1>
+            <form class="w-100" method="post">
+                <div class="fundo_2B2B2B p-5 mt-2 rounded-3 shadow-lg">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control fundo_777777 border-0" id="email" name="email" placeholder="name@example.com">
+                        <label for="floatingInput email">Digite o Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control fundo_777777 border-0" id="senha" name="senha" placeholder="Senha">
+                        <label for="floatingPassword senha">Senha</label>
+                    </div>
+                    <div class="row">
+                        <div class="form mb-3 col">
+                            <div class="text-light">
+                                Nome de Usuário
+                            </div>
+                            <label for="nome">
+                                <input type="text" class="form-control fundo_777777 border-0" id="nome" name="nome" placeholder="Usuario">
+                            </label>
+                        </div>
+                        <div class="form mb-3 col">
+                            <div class="text-light">
+                                Data de Nascimento
+                            </div>
+                            <label for="dataNascimento">
+                                <input type="date" class="form-control fundo_777777 border-0" id="dataNascimento" name="dataNascimento" placeholder="Data de nascimento">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-check mb">
+                        <input type="checkbox" value="1" class="form-check-input fundo_777777 border-0" id="termos_de_uso">
+                        <label class="form-check-label text-light" for="flexCheckDefault"> Concordo com os Termos de Uso </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn fundo_A570D4 btn-outline-light position-absolute start-50 translate-middle mt-5 col-4 border-0""> Registre-se </button>
+            </form>
+            
+        </div>
+        <div class="top-50 col-5 mt-5">
+            <h2 class="text-light text-end">
+                Junte-se à nossa comunidade musical e mergulhe em um mundo de notas, ritmos e conexões.
+            </h2>
+            <div class="col-auto text-end mt-5">
+                <a type="button" class="btn btn-light col-4 rounded-5">Ajuda!</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+{% if erros and valores: %}
+<script>
+    const validationErrors = {{ erros|tojson }};
+    const fieldValues = {{ valores|tojson }};
+</script>
+<script src="/static/js/formValidation.js"></script>
+{% endif %}

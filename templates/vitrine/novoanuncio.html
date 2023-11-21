@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="cor_5B2A86 ">
+        <h1>Novo Anuncio</h1>
+        <div class="cor_000000">
+            <hr>
+            <form method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Escreva o ttulo aqui">
+                    <label for="titulo">Titulo</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Escreva a descrição aqui" id="descricao" name="descricao" style="height: 100px"></textarea>
+                    <label for="descricao">Descrição</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Escreva o preço do produto aqui:" id="preco" name="preco" style="height: 100px"></textarea>
+                    <label for="preco">Preço</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Escreva a descrição aqui" id="condicao" name="condicao" style="height: 100px"></textarea>
+                    <label for="condicao">Escreva a condição do produto aqui:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Escreva o id do anunciante:" id="idAnunciante" name="idAnunciante" style="height: 100px"></textarea>
+                    <label for="idAnunciante">Id do Anunciante</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Escreva o nome do anunciante" id="nomeAnunciante" name="nomeAnunciante" style="height: 100px"></textarea>
+                    <label for="nomeAnunciante">Escreva o nome do anunciante:</label>
+                </div>
+                <div class="mb-3">
+                    <a href="/vitrine/listagem" class="btn btn-secondary me-2">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  
+  <div class="h2 text-light mt-3">
+    Configurações:
+  </div>
+
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item" >
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+          <h4><strong class="px-2 align-middle">Informações da conta</strong></h4>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          
+          <div class="perfil_usuario">
+            <img src="static/img/Configuracoes/Sem_Foto.png" class="capa_perfil">
+            <img src="static/img/Configuracoes/Sem_Foto.png" class="foto_perfil">
+            <h3>Nome de úsuario</h3>
+            <h5> Email </h5>
+          </div>
+          
+          <h5>Email</h5>
+          <h5>Nome de úsuario</h5>
+          <h5>Data de nascimento</h5>
+          <h5>Biografia</h5>
+          <h5>Data de cadastro</h5>
+          <h5>Excluir conta</h5>
+          <h5>Salvar / cancelar</h5>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+            <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+          </svg>
+          <h4><strong class="px-2 align-middle">Senha e segurança</strong></h4>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          
+          <h1>Alteração de Senha</h1>
+          <hr>
+          <form method="post">    
+              <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="senhaAtual" name="senhaAtual" placeholder="Digite sua senha atual">
+                  <label for="senhaAtual">Senha Atual</label>
+                  <span class="text-danger d-none small"></span>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="novaSenha" name="novaSenha" placeholder="Digite sua nova senha">
+                  <label for="novaSenha">Nova Senha</label>
+                  <span class="text-danger d-none small"></span>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="confNovaSenha" name="confNovaSenha" placeholder="Digite novamente sua nova senha">
+                  <label for="confNovaSenha">Confirme Sua Nova Senha</label>
+                  <span class="text-danger d-none small"></span>
+              </div>
+
+              <div class="mb-3">
+                  <a href="/" class="btn btn-secondary me-2">Cancelar</a>
+                  <button class="btn btn-primary" type="submit">Alterar</button>
+              </div>
+          </form>
+
+          
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-raised-hand" viewBox="0 0 16 16">
+            <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a.998.998 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207Z"/>
+            <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
+          </svg>
+          <h4><strong class="px-2 align-middle">Ajuda</strong></h4>
+
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p class="fs-4 text-decoration-underline"> Relatar um problema:</p>
+          <p class="fs-6"> Entre em contato conosco e nos conte como podemos melhorar sua experiência no Lacisum! Nossa equipe está aqui para ajudar! Utilize esta aba para relatar qualquer problema, fazer perguntas ou fornecer feedback. Se você encontrar dificuldades, bugs ou tiver sugestões, não hesite em nos informar. Estamos comprometidos em resolver rapidamente qualquer problema que você possa enfrentar. Sua opinião é valiosa para nós, e estamos prontos para oferecer o suporte necessário para garantir sua satisfação.</p>
+
+          <p class="fs-4 text-decoration-underline"> Saiba as dúvidas frequentes que podem resolver seu problema:</p>
+          <p class="fs-5 "> Como posso entrar em contato com o suporte ao usuário?</p>
+          <p class="fs-6"> Utilize a opção de relatar um problema ou envie um e-mail para lacisum@gmail.com ou solicitando um suporte.</p>
+          <p class="fs-5 "> Posso usar o aplicativo em mais de um dispositivo?</p>
+          <p class="fs-6">  Sim, você pode fazer login em sua conta em vários dispositivos.</p>
+          <p class="fs-4 text-decoration-underline "> Ajuda sobre privacidade e segurança</p>
+          <p class="fs-6">  Aqui você pode personalizar suas configurações de privacidade, decidindo quem tem acesso às suas informações pessoais e atividades. </p>
+
+        </div>
+      </div>
+    </div>
+      <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+            <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+          </svg>
+
+          <h4><strong class="px-2 align-middle">Sobre Posts</strong></h4>
+        </button>
+      </h2>
+      <div id="collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p>Aqui, a melodia encontra a expressão, e os membros da comunidade compartilham suas paixões, descobertas e experiências musicais. Esta é a sua plataforma para se perder na batida, descobrir novos sons e conectar-se com outros amantes da música.
+
+            Sinta-se à vontade para compartilhar suas playlists favoritas, discutir álbuns recentes, contar histórias sobre os concertos épicos que você participou ou simplesmente expressar o impacto emocional de uma canção especial. Os "Posts" sobre música são mais do que apenas palavras; eles são uma trilha sonora coletiva que une a comunidade em torno de uma linguagem universal.
+
+            Explore as últimas novidades, descubra gemas escondidas e participe de discussões animadas sobre os ritmos que fazem o seu coração bater mais rápido.</p>
+        </div>
+      </div>
+      </div>
+      
+      <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+          </svg>
+
+          <h4><strong class="px-2 align-middle">Sobre Clubes</strong></h4>
+        </button>
+      </h2>
+      <div id="collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p>Aqui, você tem a oportunidade de explorar uma variedade de comunidades exclusivas, cada uma delas repleta de interesses, paixões e pessoas incríveis. Os "Clubes" são espaços dedicados a temas específicos, onde membros compartilham experiências, discutem tópicos relevantes e se conectam com outros que compartilham os mesmos interesses.</p>
+        </div>
+      </div>
+      </div>
+      
+      <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg>
+
+          <h4><strong class="px-2 align-middle">Sobre Produtos</strong></h4>
+        </button>
+      </h2>
+      <div id="collapseeight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p>Adentre a aba "Produtos" e embarque em uma jornada melódica, onde cada clique é uma nota e cada compartilhamento é uma sinfonia. Este espaço é dedicado inteiramente à música, oferecendo uma seleção cuidadosamente curada de produtos que amplificam a experiência musical dos nossos membros.
+
+          Explore uma variedade de instrumentos, equipamentos de áudio, acessórios para músicos e muito mais. </p>
+        </div>
+      </div>
+      </div>
+
+    <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsenine" aria-expanded="false" aria-controls="collapsenine">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+        </svg>
+
+        <h4> <strong class="px-2 align-middle"> Denuncia e violência </strong>
+        </h4>
+      </button>
+    </h2>
+    <div id="collapsenine" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>Nossa prioridade é criar um ambiente seguro e acolhedor para todos os usuários. Utilize esta aba para relatar qualquer comportamento inadequado, discurso de ódio, ou qualquer forma de violência. Estamos comprometidos em tomar medidas imediatas para garantir a segurança de nossa comunidade. </p>
+      </div>
+    </div>
+    </div>
+    
+      <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+
+          <h4><strong class="px-2 align-middle">Sobre</strong></h4>
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p> Criado por: Lara Marques, Karen Vitoria, Myllena Gomes e Victor Marques.</P>
+          <P>IMI2020 - 2023</p>
+        </div>
+      </div>
+      </div>
+
+    <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseeleven" aria-expanded="false" aria-controls="collapseeleven">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+        </svg>
+
+        <h4><strong class="px-2 align-middle">Termo de uso</strong></h4>
+      </button>
+    </h2>
+    <div id="collapseeleven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>
+          Bem-vindo aos Termos de Uso do nosso aplicativo, onde definimos as diretrizes para garantir uma experiência segura e positiva para todos os usuários. Ao utilizar nossos serviços, você concorda em respeitar estas regras:
+</p>
+        <p>
+          Conduta Respeitosa: Trate todos os membros com cortesia e respeito. Não toleramos discurso de ódio, assédio ou qualquer forma de comportamento prejudicial.
+</p>
+        <p>
+          Proteção da Privacidade: Respeite a privacidade dos outros usuários. Não compartilhe informações pessoais sem permissão.</p>
+          <p>
+          Conteúdo Adequado: Não publique ou compartilhe conteúdo ofensivo, violento ou que viole direitos autorais. Mantenha a comunidade segura para todos.</p>
+            <p>
+          Denúncias e Colaboração: Utilize as ferramentas de denúncia para relatar comportamentos inadequados. Colabore para manter um ambiente seguro e saudável. </p>
+              <p>
+          Segurança da Conta: Proteja suas credenciais de login. Não compartilhe senhas e informe-nos imediatamente sobre qualquer atividade suspeita em sua conta.</p>
+                <p>
+          Uso Adequado dos Recursos: Utilize os recursos do aplicativo conforme as diretrizes estabelecidas. Não manipule ou explore vulnerabilidades na plataforma. </p>
+                  <p>
+          Ao utilizar nosso aplicativo, você concorda em aderir a estes Termos de Uso. Reservamo-nos o direito de tomar medidas apropriadas em casos de violação dessas regras. Agradecemos por ser parte de nossa comunidade e por contribuir para um ambiente online positivo. </p>
+      </div>
+    </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseten" aria-expanded="false" aria-controls="collapseeleven">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-shield-exclamation" viewBox="0 0 16 16">
+              <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+              <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
+
+            <h4><strong class="px-2 align-middle">Política de Privacidade
+
+</strong></h4>
+          </button>
+        </h2>
+        <div id="collapseten" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              Comprometemo-nos a proteger sua privacidade e dados pessoais. Leia atentamente nossa Política de Privacidade para entender como coletamos, utilizamos e protegemos suas informações:
+      </p>
+            <p>
+              Coleta de Informações: Podemos coletar dados pessoais, como nome, e-mail e informações de perfil, para melhorar sua experiência e oferecer suporte adequado.
+      </p>
+            <p>
+            Uso de Informações: Utilizamos suas informações para personalizar o serviço, fornecer suporte, enviar atualizações relevantes e garantir a segurança da plataforma.</p>
+              <p>
+              Compartilhamento de Dados: Não compartilhamos suas informações pessoais com terceiros sem seu consentimento, exceto quando necessário para cumprir obrigações legais.</p>
+                <p>
+                Segurança: Implementamos medidas de segurança para proteger suas informações contra acesso não autorizado, alteração ou divulgação. </p>
+                  <p>
+            Cookies e Tecnologias Semelhantes: Podemos usar cookies e tecnologias similares para melhorar a experiência do usuário e personalizar conteúdo.</p>
+                    <p>
+                    Atualizações e Contato: Periodicamente, podemos enviar atualizações sobre nossa Política de Privacidade. Fique atento a essas notificações e entre em contato conosco se tiver dúvidas.</p>
+                      <p>
+                      Ao continuar usando nosso aplicativo, você concorda com esta Política de Privacidade. Respeitamos sua privacidade e estamos comprometidos em proteger suas informações. Se precisar de mais esclarecimentos ou assistência, entre em contato conosco. Obrigado por confiar em nós. </p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

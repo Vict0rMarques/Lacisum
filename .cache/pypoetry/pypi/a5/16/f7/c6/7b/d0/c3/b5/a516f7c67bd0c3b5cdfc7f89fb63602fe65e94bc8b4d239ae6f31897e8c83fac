@@ -1,0 +1,1 @@
+9999999999{"name": "li-repo", "version": "1.12.0", "summary": "Loja Integrada's models for Django ORM.", "platform": "", "requires_dist": ["distribute", "Django<1.9", "jsonfield>=0.9.20", "psycopg2", "django-mptt", "unidecode", "boto", "django-mptt", "li-common", "django-cache-machine", "tldextract"], "requires_python": null, "files": [], "_cache_version": "1.0.0"}

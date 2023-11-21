@@ -1,0 +1,89 @@
+<!-- /templates/projeto/projetos.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  
+  <div class="h2 text-light mb-3">
+    Músicas Aguardando Aprovação
+  </div>
+  
+  {% if musicas|length == 0 %}
+  <p class="text-light">Não há músicas aguardando aprovação.</p>
+  {% else %}
+
+  <div class="rounded fundo_A570D4">
+    <table class="table table-sm table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="text-bg-dark">Nome da Música</th>
+                <th class="text-bg-dark">Nome do Artista</th>
+                <th class="text-bg-dark">Estilo Músical</th>
+                <th class="text-bg-dark">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for m in musicas %}
+            <tr data-id="{{ m.id }}">
+                <td>{{ m.nome }}</td>
+                <td>{{ m.nomeArtista }}</td>
+                <td>{{ m.nomeEstiloMusical }}</td>
+                <td>
+                    <button data-id="{{ m.id }}" class="btn fundo_A570D4 btn-sm hover_A570D4 icone_branco" title="Aprovar" data-bs-toggle="tooltip" data-bs-placement="left">
+                        <i class="bi bi-check"></i>
+                    </button>
+                </td>
+            </tr>    
+        {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  
+  {% endif %}
+  
+  {% if totalPaginas > 1 %}
+  <nav>
+      <ul class="pagination pagination-sm">
+          <li class="page-item">
+              <a class="page-link {{ 'disabled' if (paginaAtual == 1) }}" href="/playlist/aprovarmusica?pa=1&tp={{ tamanhoPagina }}">
+                  <i class="bi bi-arrow-left"></i>
+              </a>
+          </li>
+  
+          <li class="page-item">
+              <a class="page-link {{ 'disabled' if (paginaAtual == 1) }}" href="/playlist/aprovarmusica?pa={{ paginaAtual-1 }}&tp={{ tamanhoPagina }}">
+                  <i class="bi bi-arrow-left-short"></i>
+              </a>
+          </li>
+  
+          {% for i in range(totalPaginas) %}
+          <li class="page-item">
+              <a class="page-link {{ 'active' if (paginaAtual == i+1) }}" href="/playlist/aprovarmusica?pa={{ i+1 }}&tp={{ tamanhoPagina }}">{{ i+1 }}</a>
+          </li>
+          {% endfor %}
+  
+          <li class="page-item">
+              <a class="page-link {{ 'disabled' if (paginaAtual == totalPaginas) }}" href="/playlist/aprovarmusica?pa={{ paginaAtual+1 }}&tp={{ tamanhoPagina }}">
+                  <i class="bi bi-arrow-right-short"></i>
+              </a>
+          </li>
+  
+          <li class="page-item">
+              <a class="page-link {{ 'disabled' if (paginaAtual == totalPaginas) }}" href="/playlist/aprovarmusica?pa={{ totalPaginas }}&tp={{ tamanhoPagina }}">
+                  <i class="bi bi-arrow-right"></i>
+              </a>
+          </li>
+      </ul>
+  </nav>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/ativarTooltips.js"></script>
+{% if musicas|length > 0: %}
+<script src="/static/js/aprovarmusica.js"></script>
+{% endif %}
+{% endblock %}

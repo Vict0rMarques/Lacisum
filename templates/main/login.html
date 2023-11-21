@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta nome="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <title>Lacisum - Login </title>
+
+</head>
+
+<body class="fundo_5B2A86">
+
+    <img src="static/img/Login/FundoLogin.png"
+        class="position-absolute top-50 start-50 translate-middle --bs-secondary-color rounded-3 shadow-lg">
+
+    <div class="position-absolute top-50 start-50 translate-middle col-3">
+        <h1 class="text-light text-center">
+            Lacisum
+        </h1>
+        {% if not logado: %}
+        <form class="w-100" method="post">
+            <div class="fundo_2B2B2B p-5 mt-2 rounded-3 shadow-lg">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control fundo_777777 border-0" id="floatingInput email"
+                        placeholder="name@example.com" name="email" value="{{ email }}">
+                    <label for="floatingInput email">Digite o Email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control fundo_777777 border-0" id="floatingPassword senha"
+                        placeholder="Password" name="senha">
+                    <label for="floatingPassword senha">Senha</label>
+                </div>
+                <div class="col-auto text-center mt-3">
+                    <button type="submit" class="btn btn-light col-4 rounded-5" id="botaoLogin">Login!</button>
+                </div>
+            </div>
+        </form>
+        <a type="button"
+            class="btn fundo_A570D4 btn-outline-light position-absolute start-50 translate-middle mt-5 col-4 border-0"
+            href="/usuario/cadastro"> Registre-se </a>
+        {% else: %}
+        <h3>Você já está logado.</h3>
+        {% endif %}
+        
+    </div>
+
+
+    {% if erros and valores: %}
+    <script>
+        const validationErrors = {{ erros|tojson }};
+        const fieldValues = {{ valores|tojson }};
+    </script>
+    <script src="/static/js/formValidation.js"></script>
+    {% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Exclusão de Música</h1>
+<hr>
+<p class="lead">Deseja realmente excluir a música <b>{{ musica.nome }}</b>?</p>
+<form action="/playlist/excluirmusica" method="post">
+    <input type="hidden" name="id" value="{{ musica.id }}">
+    <div class="mb-3">
+        <a href="/playlist/listagem" class="btn btn-secondary me-2">Cancelar</a>
+        <button class="btn btn-danger" type="submit">Excluir</button>
+    </div>
+</form>
+{% endblock %}

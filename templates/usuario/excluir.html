@@ -1,0 +1,15 @@
+<!-- /templates/main/index.html -->
+{% extends "base.html" %}
+
+{% block conteudo %}
+<h1>Exclusão de Usúario</h1>
+<hr>
+<p class="lead">Deseja realmente excluir o usuario <b>{{ usuario.nome }}</b>?</p>
+<form action="/usuario/excluir" method="post">
+    <input type="hidden" name="id" value="{{ usuario.id }}">
+    <div class="mb-3">
+        <a href="/usuario/listagem" class="btn btn-secondary me-2">Cancelar</a>
+        <button class="btn btn-danger" type="submit">Excluir</button>
+    </div>
+</form>
+{% endblock %}

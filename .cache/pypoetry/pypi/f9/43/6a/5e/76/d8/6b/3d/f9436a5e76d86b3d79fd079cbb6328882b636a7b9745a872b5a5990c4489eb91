@@ -1,0 +1,1 @@
+9999999999{"name": "Routes", "version": "2.5.1", "summary": "Routing Recognition and Generation Tools", "platform": "", "requires_dist": ["six", "repoze.lru (>=0.3)", "Sphinx ; extra == 'docs'", "webob ; extra == 'docs'", "webob ; extra == 'middleware'"], "requires_python": "", "files": [], "_cache_version": "1.0.0"}

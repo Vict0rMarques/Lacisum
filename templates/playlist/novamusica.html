@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+    
+  <div class="h2 text-light mb-3">
+    Adicione uma nova Música!
+  </div>
+  
+  <form method="post" enctype="multipart/form-data">
+    <div class="row fundo_181818 p-3 text-light">
+      
+      <div class="col-3">
+  
+        <label for="capaMusica" class="form-label">
+          <h4>Selecione a Capa da Música:</h4>
+        </label>
+        
+        <!-- LOCAL PARA MOSTRAR IMAGEM SELECIONADA -->
+          <img id="preview" src="" class="rounded rounded-3 w-100 d-none" />
+        <!-- ------------------------------------- -->
+        
+        <input class="form-control" type="file" id="capaMusica" name="capaMusica" onchange="previewImage(event)" accept="image/jpeg" required>
+        <span class="text-danger d-none small"></span>
+        
+        <!-- SCRIPT PARA MOSTRAR IMAGEM SELECIONADA -->
+        <script>
+            function previewImage(event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var preview = document.getElementById('preview');
+                    preview.src = reader.result;
+                    preview.classList.remove('d-none');
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
+        <!-- -------------------------------------- -->
+        
+        
+      </div>
+  
+      <div class="col-9 px-3">
+        <div class="col-12">
+          <label for="nome"><h4>Nome da Música</h4></label>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome da música" autofocus>
+          <span class="text-danger d-none small"></span>
+        </div>
+  
+        <div class="col-12 mt-4">
+          <label for="idUsuario"><h4>Artista</h4></label>
+          <select class="form-select" id="idUsuario" name="idUsuario">
+            <option value="0">Selecione o Artista...</option>
+            {% for u in usuarios %}
+            <option value={{ u.id }}>{{ u.nome }}</option>
+            {% endfor %}
+          </select>
+          <span class="text-danger d-none small"></span>
+        </div>
+  
+        <div class="col-12 mt-4">
+          <label for="idEstiloMusical"><h4>Estilo Músical</h4></label>
+          <select class="form-select" id="idEstiloMusical" name="idEstiloMusical">
+            <option value="0">Selecione o Estilo Músical...</option>
+            {% for i in estilos %}
+            <option value={{ i.id }}>{{ i.nome }}</option>
+            {% endfor %}
+          </select>
+          <span class="text-danger d-none small"></span>
+        </div>
+  
+        <div class="col-12 mt-4 text-end">
+          <a href="/playlist/listagem" class="btn fundo_3E3E3E btn-outline-light border-0 px-3">Cancelar</a>
+          <button class="btn fundo_A570D4 btn-outline-light border-0 px-3" type="submit">Salvar</button>
+        </div>
+        
+      </div>
+      
+    </div>
+  </form>
+  
+</div>
+
+  
+{% endblock %}
