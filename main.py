@@ -50,5 +50,5 @@ app.include_router(EventoRouter)
 app.include_router(PlaylistRouter)
 app.include_router(UsuarioRouter)
 
-if __name__ == "__main__":
-    uvicorn.run(app="main:app", reload=True)
+# if __name__ == "__main__":
+#     uvicorn.run(app="main:app", reload=True)
