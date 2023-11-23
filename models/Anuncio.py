@@ -9,7 +9,6 @@ class Anuncio:
     descricao: str
     preco: float
     condicao: str
-    foto: Optional[bytes] = b""
     datahora: Optional[datetime] = None
     idAnunciante: int = 0
     nomeAnunciante: str = ""

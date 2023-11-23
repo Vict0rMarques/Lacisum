@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+  <div class="h2 text-light mt-3">
+    Contas de Artistas:
+  </div>
+
+  <div class="row">
+    <div class="col-4 mt-3 text-start">
+      <a href="/artista/cadastroArtista" class="btn btn-sm fundo_A570D4 text-light hover_000000 py-2 px-4 fw-bolder" title="Cadastrar Artista" data-bs-toggle="tooltip" data-bs-placement="left">
+        Cadastrar artista
+      </a>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row g-3 mt-1">
+      
+      <div class="accordion-body">
+
+        {% for a in artistas %}
+        <div class="perfil_usuario rounded p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">{{i.nome}}</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">{{i.email}}</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">{{i.dataNascimento}}</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">{{i.dataCadastro}}</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9">
+                    <h5 class="mt-5">{{i.biografia}}</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        {% endfor %}
+
+        <div class="perfil_usuario rounded p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">Adele Laurie Blue Adkins</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">adele@email.com</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">1988-04-05</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">2023-11-23</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9 text-start">
+                    <h5 class="mt-5">✨ Cantora e compositora britânica 🎤 | Emocionando corações pelo mundo com minhas baladas sinceras 💔 | Vencedora de múltiplos Grammy 🏆 | Álbuns icônicos: "21" e "25" 🎶</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <div class="perfil_usuario rounded mt-4 p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">Caetano Emanuel Viana Telles Veloso</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">caetano@email.com</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">1942-07-07</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">2023-11-23</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9 text-start">
+                    <h5 class="mt-5">🎤 Cantor e compositor brasileiro 🇧🇷 | Pioneiro da Tropicália e poeta da música 🌺 | Levando a alma brasileira para o mundo 🌍</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="perfil_usuario rounded mt-4 p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">Edward Christopher Sheeran</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">ed@email.com</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">1991-02-17</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">2023-11-23</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9 text-start">
+                    <h5 class="mt-5">🌟 Cantor, compositor e amante de tudo que é musical 🎸 | Misturando pop, folk e R&B para criar magia sonora 🎵 | Vencedor do Grammy e contador de histórias musicais 📖</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="perfil_usuario rounded mt-4 p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">Beyoncé Giselle Knowles-Carter</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">beyonce@email.com</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">1981-09-04</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">2023-11-23</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9 text-start">
+                    <h5 class="mt-5">👑 Rainha do pop e do R&B | Fundadora do Destiny's Child 👯‍♀️ | Artista visual e ativista | Empoderando o mundo, um hit de cada vez 🌍🎤</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="perfil_usuario rounded mt-4 p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">Gilberto Passos Gil Moreira</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">gilberto@email.com</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">1942-06-26</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">2023-11-23</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9 text-start">
+                    <h5 class="mt-5">👑 🎶 Músico, cantor e compositor 🎸 | Vanguarda da Tropicália e embaixador da MPB 🇧🇷 | Sua música é um abraço cultural do Brasil para o mundo 🌐</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="perfil_usuario rounded mt-4 p-2">
+      
+          <img src="/static/img/Artistas/Pessoa.png" class="foto_perfil">
+          
+          
+          <div class="fundo_3E3E3E rounded p-2 dados_usuarios">
+            <h3 class="nome_usuario">Agenor de Miranda Araújo Neto</h3>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="mt-5">Email:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-5">cazuza@email.com</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de nascimento:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">1958-04-04</h5>
+                  </div>
+  
+                  <div class="col-6">
+                    <h4 class="mt-3">Data de cadastro:</h4>
+                  </div>
+                  <div class="col-6">
+                    <h5 class="mt-3">2023-11-23</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3">
+                    <h4 class="mt-5">Biografia:</h4>
+                  </div>
+                  <div class="col-9 text-start">
+                    <h5 class="mt-5">🎙️ Cantor e poeta do rock brasileiro 🇧🇷 | Letras que tocam a alma e desafiam convenções 📜 | Ícone da rebeldia e da autenticidade 💔 | Sua música é a voz da liberdade e da paixão 🎶</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        
+
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/ativarTooltips.js"></script>
+{% if alunos|length > 0: %}
+<script src="/static/js/desaprovarMusica.js"></script>
+{% endif %}
+{% endblock %}

@@ -9,9 +9,9 @@ class Usuario:
     email: str
     dataNascimento: datetime  
     senha: Optional[str] = ""
-    admin: bool = False
+    admin: Optional[bool] = False
     token: Optional[str] = "" 
     biografia: Optional[str] = ""
     qtdeSeguidores: Optional[int] = None
     dataCadastro: Optional[datetime] = None
-    artista: bool = False
+    artista: Optional[bool] = False

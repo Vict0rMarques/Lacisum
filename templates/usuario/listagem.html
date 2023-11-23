@@ -32,7 +32,7 @@
                 <button data-id="{{ a.id }}" class="btn btn-warning btn-sm" title="Desaprovar" data-bs-toggle="tooltip" data-bs-placement="left">
                     <i class="bi bi-person-lock"></i>
                 </button>
-                <a href="/aluno/excluir/{{ a.id }}" class="btn btn-danger btn-sm" title="Excluir" data-bs-toggle="tooltip" data-bs-placement="left">
+                <a href="/artista/excluir/{{ a.id }}" class="btn btn-danger btn-sm" title="Excluir" data-bs-toggle="tooltip" data-bs-placement="left">
                     <i class="bi bi-trash"></i>
                 </a>
             </td>
@@ -46,31 +46,31 @@
 <nav>
     <ul class="pagination pagination-sm">
         <li class="page-item">
-            <a class="page-link {{ 'disabled' if (paginaAtual == 1) }}" href="/aluno/listagem?pa=1&tp={{ tamanhoPagina }}">
+            <a class="page-link {{ 'disabled' if (paginaAtual == 1) }}" href="/artista/listagem?pa=1&tp={{ tamanhoPagina }}">
                 <i class="bi bi-arrow-left"></i>
             </a>
         </li>
 
         <li class="page-item">
-            <a class="page-link {{ 'disabled' if (paginaAtual == 1) }}" href="/aluno/listagem?pa={{ paginaAtual-1 }}&tp={{ tamanhoPagina }}">
+            <a class="page-link {{ 'disabled' if (paginaAtual == 1) }}" href="/artista/listagem?pa={{ paginaAtual-1 }}&tp={{ tamanhoPagina }}">
                 <i class="bi bi-arrow-left-short"></i>
             </a>
         </li>
 
         {% for i in range(totalPaginas) %}
         <li class="page-item">
-            <a class="page-link {{ 'active' if (paginaAtual == i+1) }}" href="/aluno/listagem?pa={{ i+1 }}&tp={{ tamanhoPagina }}">{{ i+1 }}</a>
+            <a class="page-link {{ 'active' if (paginaAtual == i+1) }}" href="/artista/listagem?pa={{ i+1 }}&tp={{ tamanhoPagina }}">{{ i+1 }}</a>
         </li>
         {% endfor %}
 
         <li class="page-item">
-            <a class="page-link {{ 'disabled' if (paginaAtual == totalPaginas) }}" href="/aluno/listagem?pa={{ paginaAtual+1 }}&tp={{ tamanhoPagina }}">
+            <a class="page-link {{ 'disabled' if (paginaAtual == totalPaginas) }}" href="/artista/listagem?pa={{ paginaAtual+1 }}&tp={{ tamanhoPagina }}">
                 <i class="bi bi-arrow-right-short"></i>
             </a>
         </li>
 
         <li class="page-item">
-            <a class="page-link {{ 'disabled' if (paginaAtual == totalPaginas) }}" href="/aluno/listagem?pa={{ totalPaginas }}&tp={{ tamanhoPagina }}">
+            <a class="page-link {{ 'disabled' if (paginaAtual == totalPaginas) }}" href="/artista/listagem?pa={{ totalPaginas }}&tp={{ tamanhoPagina }}">
                 <i class="bi bi-arrow-right"></i>
             </a>
         </li>

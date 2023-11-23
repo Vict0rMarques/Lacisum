@@ -26,7 +26,8 @@ async def startup_event():
 async def getIndex(
     request: Request, usuario: Usuario = Depends(validar_usuario_logado)
 ):
-    publicacoes = PublicacaoRepo.obterTodos()    
+    publicacoes = PublicacaoRepo.obterTodos()
+    # user = UsuarioRepo.obterPorId(usuario.id)
     return templates.TemplateResponse(
         "main/index.html", {"request": request, "usuario": usuario, "publicacoes": publicacoes}
     )
@@ -53,6 +54,8 @@ async def postLogin(
 
     # validação de dados
     erros = {}
+    erro_login = None   # Inicialize a variável de erro_login como None
+
     # validação do campo email
     is_not_empty(email, "email", erros)
     is_email(email, "email", erros)
@@ -81,7 +84,7 @@ async def postLogin(
             add_error("email", "Usuário não cadastrado.", erros)
 
     # se tem algum erro, mostra o formulário novamente
-    if len(erros) > 0:
+    if len(erros) > 0 or erro_login:
         valores = {}
         valores["email"] = email        
         return templates.TemplateResponse(
@@ -91,6 +94,7 @@ async def postLogin(
                 "usuario": usuario,
                 "erros": erros,
                 "valores": valores,
+                "erro_login": erro_login,  # Passe a mensagem de erro_login para o template
             },
         )
 

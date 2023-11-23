@@ -24,13 +24,25 @@
             <input class="form-control bg-transparent text-white borda_na_esquerda borda_3E3E3E rounded-start" type="search" placeholder="Pesquise uma publicação" aria-label="Pesquisar">
             <button class="btn btn-outline-success fundo_3E3E3E borda_na_direita borda_3E3E3E text-white rounded-end hover_A570D4" type="submit">Pesquisar</button>
           </form>
-          <button type="button" class="btn fundo_3E3E3E hover_3E3E3E">
+
+          {% if usuario %}
+          <a type="button" class="btn fundo_3E3E3E hover_3E3E3E">
             @Usúario
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
               <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
             </svg>
-          </button>
+          </a>
+          {% else %}
+          <a type="button" class="btn fundo_3E3E3E hover_3E3E3E" href="/login">
+            Login
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+          </a>
+          {% endif %}
+          
         </div>
       </nav>
     </div>
@@ -46,33 +58,33 @@
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="bi bi-house icone_branco">
     </a>
   </div>
-  <div class="w-100 mb-4 text-center">
+  <!-- <div class="w-100 mb-4 text-center">
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="bi bi-people-fill icone_branco"></a>
-  </div>
+  </div> -->
   <div class="w-100 mb-4 text-center">
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="bi bi-shop-window icone_branco"></a>
   </div>
-  <div class="w-100 mb-4 text-center">
+  <!-- <div class="w-100 mb-4 text-center">
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class= "bi bi-calendar-week icone_branco"></a>
-  </div>
+  </div> -->
   <div class="w-100 mb-4 text-center">
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="bi bi-music-note-list icone_branco"></a>
   </div>
-  <div class="w-100 mb-4 text-center">
+  <!-- <div class="w-100 mb-4 text-center">
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="bi bi bi-bell icone_branco"></a>
-  </div>
+  </div> -->
   <div class="w-100 mb-4 text-center">
     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="bi bi-gear icone_branco"></a>
   </div>
     </div>
     <div>
       <div class="w-100 mb-4 text-center">
-          {% if not logado: %}
-            <a data-bs-toggle="offcanvas" onclick="window.location.href='/login'" role="button"
-                aria-controls="offcanvasExample" class="bi bi-box-arrow-in-left icone_branco"></a>
+          {% if usuario %}
+            <a data-bs-toggle="offcanvas" onclick="window.location.href='/logout'" role="button"
+              aria-controls="offcanvasExample" class="bi bi-box-arrow-right icone_branco"></a>
           {% else: %}
-            <a data-bs-toggle="offcanvas" href="/logout" role="button"
-                aria-controls="offcanvasExample" class="bi bi-box-arrow-right icone_branco"></a>
+            <a data-bs-toggle="offcanvas" onclick="window.location.href='/login'" role="button"
+              aria-controls="offcanvasExample" class="bi bi-box-arrow-in-left icone_branco"></a>
           {% endif %}
       </div>
     </div>
@@ -95,31 +107,31 @@
       Início
       </a>
     </div>
-    <div class="row mb-4">
+    <!-- <div class="row mb-4">
       <a class="bi bi-people-fill icone_branco text_decoration" href="/">
       Clubes
       </a>
-    </div>
+    </div> -->
     <div class="row mb-4">
-      <a class="bi bi-shop-window icone_branco text_decoration" href="/">
+      <a class="bi bi-shop-window icone_branco text_decoration" href="/vitrine/listagem">
       Vitrine
       </a>
     </div>
-    <div class="row mb-4">
+    <!-- <div class="row mb-4">
       <a class="bi bi-calendar-week icone_branco text_decoration" href="/">
         Eventos
       </a>
-    </div>
+    </div> -->
     <div class="row mb-4">
       <a class="bi bi-music-note-list icone_branco text_decoration" href="/playlist/listagem">
       Playlist
       </a>
     </div>
-    <div class="row mb-4">
+    <!-- <div class="row mb-4">
       <a class="bi bi-bell icone_branco text_decoration" href="/">
       Notificações
       </a>
-    </div>
+    </div> -->
     <div class=" mb-4">
       <a class="bi bi-gear icone_branco text_decoration" href="/usuario/configuracoes">
       Configurações
@@ -147,3 +159,6 @@
 
 <!-- JavaScript do Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+{% block script %}
+{% endblock %}

@@ -1,6 +1,7 @@
 from typing import List
 from util.Database import Database
 from models.Musica import Musica
+from models.Artista import Artista
 
 class MusicaRepo:
 
@@ -9,11 +10,11 @@ class MusicaRepo:
         sql = """
             CREATE TABLE IF NOT EXISTS musica (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome TEXT NOT NULL,
-            aprovado BOOLEAN NOT NULL DEFAULT 0,
             idArtista INTEGER,
             idEstiloMusical INTEGER,
-            FOREIGN KEY (idArtista) REFERENCES Artista (id),
+            nome TEXT NOT NULL,
+            aprovado BOOLEAN NOT NULL DEFAULT 0,
+            FOREIGN KEY (idArtista) REFERENCES Artista (idArtista),
             FOREIGN KEY (idEstiloMusical) REFERENCES EstiloMusical (id))
         """
         conexao = Database.criarConexao()
@@ -25,11 +26,11 @@ class MusicaRepo:
 
     @classmethod
     def inserir(cls, musica: Musica) -> Musica:
-        sql = "INSERT INTO musica (nome, aprovado, nomeArtista, nomeEstiloMusical) VALUES (?, ?, ?, ?)"
+        sql = "INSERT INTO musica (nome, aprovado, idArtista, idEstiloMusical) VALUES (?, ?, ?, ?)"
         conexao = Database.criarConexao()
         cursor = conexao.cursor()
         resultado = cursor.execute(
-            sql, (musica.nome, musica.aprovado, musica.nomeArtista, musica.nomeEstiloMusical))
+            sql, (musica.nome, musica.aprovado, musica.idArtista, musica.idEstiloMusical))
         if resultado.rowcount > 0:
             musica.id = resultado.lastrowid
         conexao.commit()
@@ -81,7 +82,7 @@ class MusicaRepo:
 
     @classmethod
     def obterTodos(cls) -> List[Musica]:
-        sql = "SELECT musica.id, musica.nome, musica.nomeArtista, musica.nomeEstiloMusical FROM musica WHERE musica.aprovado = 1 ORDER BY musica.nome"
+        sql = "SELECT musica.id, musica.nome, musica.idArtista, usuario.nome as nomeArtista, musica.idEstiloMusical, estilomusical.nome as nomeEstiloMusical FROM musica INNER JOIN usuario ON usuario.id = musica.idArtista INNER JOIN estilomusical ON estilomusical.id = musica.idEstiloMusical WHERE musica.aprovado = 1 ORDER BY  musica.nome"
         conexao = Database.criarConexao()
         cursor = conexao.cursor()
         resultado = cursor.execute(sql).fetchall()
@@ -89,8 +90,10 @@ class MusicaRepo:
             Musica(
                 id=x[0],
                 nome=x[1],
-                nomeArtista=x[2],
-                nomeEstiloMusical=x[3]
+                idArtista=x[2],
+                nomeArtista=x[3],
+                idEstiloMusical=x[4],
+                nomeEstiloMusical=x[5]
             ) for x in resultado
         ]
         return objetos
@@ -114,7 +117,7 @@ class MusicaRepo:
     @classmethod
     def obterPagina(cls, pagina: int, tamanhoPagina: int) -> List[Musica]:
         inicio = (pagina - 1) * tamanhoPagina
-        sql = "SELECT musica.id, musica.nome, musica.nomeArtista, musica.nomeEstiloMusical FROM musica WHERE musica.aprovado = 1 ORDER BY musica.nome LIMIT ?, ?"
+        sql = "SELECT musica.id, musica.nome, musica.idArtista, usuario.nome as nomeArtista, musica.idEstiloMusical, estilomusical.nome as nomeEstiloMusical FROM musica INNER JOIN usuario ON usuario.id = musica.idArtista INNER JOIN estilomusical ON estilomusical.id = musica.idEstiloMusical WHERE musica.aprovado = 1 ORDER BY musica.nome LIMIT ?, ?"
         conexao = Database.criarConexao()
         cursor = conexao.cursor()
         resultado = cursor.execute(sql, (inicio, tamanhoPagina)).fetchall()
@@ -122,8 +125,10 @@ class MusicaRepo:
             Musica(
                 id=x[0],
                 nome=x[1],
-                nomeArtista=x[2],
-                nomeEstiloMusical=x[3]
+                idArtista=x[2],
+                nomeArtista=x[3],
+                idEstiloMusical=x[4],
+                nomeEstiloMusical=x[5]
             ) for x in resultado
         ]
         return objetos
@@ -139,7 +144,7 @@ class MusicaRepo:
     @classmethod
     def obterPaginaAprovar(cls, pagina: int, tamanhoPagina: int) -> List[Musica]:
         inicio = (pagina - 1) * tamanhoPagina
-        sql = "SELECT musica.id, musica.nome, musica.nomeArtista, musica.nomeEstiloMusical FROM musica WHERE musica.aprovado = 0 ORDER BY musica.nome LIMIT ?, ?"
+        sql = "SELECT musica.id, musica.nome, musica.idArtista, usuario.nome as nomeArtista, musica.idEstiloMusical, estilomusical.nome as nomeEstiloMusical FROM musica INNER JOIN usuario ON usuario.id = musica.idArtista INNER JOIN estilomusical ON estilomusical.id = musica.idEstiloMusical WHERE musica.aprovado = 0 ORDER BY musica.nome LIMIT ?, ?"
         conexao = Database.criarConexao()
         cursor = conexao.cursor()
         resultado = cursor.execute(sql, (inicio, tamanhoPagina)).fetchall()
@@ -147,8 +152,10 @@ class MusicaRepo:
             Musica(
                 id=x[0],
                 nome=x[1],
-                nomeArtista=x[2],
-                nomeEstiloMusical=x[3]
+                idArtista=x[2],
+                nomeArtista=x[3],
+                idEstiloMusical=x[4],
+                nomeEstiloMusical=x[5]
             ) for x in resultado
         ]
         return objetos
@@ -171,17 +178,19 @@ class MusicaRepo:
 
     @classmethod
     def obterPorId(cls, id: int) -> Musica | None:
-        sql = "SELECT musica.id, musica.nome, musica.nomeArtista, musica.nomeEstiloMusical FROM musica WHERE musica.id=?"
+        sql = "SELECT musica.id, musica.nome, musica.idArtista, usuario.nome as nomeArtista, musica.idEstiloMusical, estilomusical.nome as nomeEstiloMusical FROM musica WHERE musica.id=?"
         conexao = Database.criarConexao()
         cursor = conexao.cursor()
-        resultado = cursor.execute(sql, (id, )).fetchone()
+        resultado = cursor.execute(sql, (id,)).fetchone()
         conexao.close()
         if resultado:
             objeto = Musica(
                 id=resultado[0],
                 nome=resultado[1],
-                nomeArtista=resultado[2],
-                nomeEstiloMusical=resultado[3]
+                idArtista=resultado[2],
+                nomeArtista=resultado[3],
+                idEstiloMusical=resultado[4],
+                nomeEstiloMusical=resultado[5]
             )
             return objeto
         else:

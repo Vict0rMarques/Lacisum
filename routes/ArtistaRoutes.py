@@ -5,13 +5,15 @@ from fastapi.templating import Jinja2Templates
 
 from models.Usuario import Usuario
 from repositories.UsuarioRepo import UsuarioRepo
+from models.Artista import Artista
+from repositories.ArtistaRepo import ArtistaRepo
 
-from util.security import gerar_token, obter_hash_senha, validar_usuario_logado, verificar_senha
+from util.security import obter_hash_senha, validar_usuario_logado, verificar_senha
 from util.templateFilters import formatarData
 from util.validators import *
 
 
-router = APIRouter(prefix="/usuario")
+router = APIRouter(prefix="/artista")
 templates = Jinja2Templates(directory="templates")
 
 
@@ -29,16 +31,18 @@ async def getListagem(
 ):
     if usuario:
         if usuario.admin:
-            usuario = UsuarioRepo.obterPagina(pa, tp)
-            totalPaginas = UsuarioRepo.obterQtdePaginas(tp)
+            
+            artista = ArtistaRepo.obterPagina(pa, tp)
+            totalPaginas = ArtistaRepo.obterQtdePaginas(tp)
             return templates.TemplateResponse(
-                "usuario/listagem.html",
+                "artista/artistas.html",
                 {
                     "request": request,
                     "totalPaginas": totalPaginas,
                     "usuario": usuario,
                     "paginaAtual": pa,
-                    "tamanhoPagina": tp
+                    "tamanhoPagina": tp,
+                    "artista": artista
                 },
             )
         else:
@@ -46,15 +50,15 @@ async def getListagem(
     else:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
-@router.get("/cadastro", response_class=HTMLResponse)
+@router.get("/cadastroArtista", response_class=HTMLResponse)
 async def getCadastro(
     request: Request, usuario: Usuario = Depends(validar_usuario_logado)
 ): 
     return templates.TemplateResponse(
-        "usuario/cadastro.html", {"request": request, "usuario": usuario},
+        "artista/cadastroArtista.html", {"request": request, "usuario": usuario},
     )
 
-@router.post("/cadastro")
+@router.post("/cadastroArtista")
 async def postCadastro(
     request: Request,
     usuario: Usuario = Depends(validar_usuario_logado),
@@ -76,8 +80,8 @@ async def postCadastro(
     # validação do campo email
     is_not_empty(email, "email", erros)
     if is_email(email, "email", erros):
-        if UsuarioRepo.emailExiste(email):
-            add_error("email", "Já existe um usuário cadastrado com este e-mail.", erros)
+        if ArtistaRepo.emailExiste(email):
+            add_error("email", "Já existe um artista cadastrado com este e-mail.", erros)
     # validação do campo senha
     is_not_empty(senha, "senha", erros)
     is_password(senha, "senha", erros)
@@ -85,7 +89,7 @@ async def postCadastro(
     # Se não houver erros, insira o cliente no banco de dados
     if len(erros) == 0:
         # Crie um objeto Cliente com os dados fornecidos
-        novo_usuario = Usuario(
+        novo_artista = Artista(
             id=0,
             nome=nome,
             email=email,
@@ -95,26 +99,10 @@ async def postCadastro(
         )
 
     # Insira o cliente no banco de dados
-        UsuarioRepo.inserir(novo_usuario)
+        ArtistaRepo.inserir(novo_artista) 
 
-    # Gera um token para o cliente recém-cadastrado
-    token = gerar_token()
-
-    # Atualiza o token no banco de dados
-    if not UsuarioRepo.alterarToken(email, token):
-        raise HTTPException(
-            status_code=500,
-            detail="Não foi possível atualizar o token no banco de dados.",
-        )
-
-    # mostra página de sucesso
-    response = RedirectResponse("/", status_code=status.HTTP_302_FOUND) 
-
-    # Define o token como cookie
-    response.set_cookie(
-        key="auth_token", value=token, httponly=True, expires="1970-01-01T00:00:00Z"
-    )
-    return response 
+    response = RedirectResponse("/artista/listagem", status.HTTP_302_FOUND)
+    return response
 
     # se tem erro, mostra o formulário novamente
     if len(erros) > 0:
@@ -124,7 +112,7 @@ async def postCadastro(
         valores["email"] = email.lower()
         valores["dataNascimento"] = str(dataNascimento)
         return templates.TemplateResponse(
-            "usuario/cadastro.html",
+            "artista/cadastroArtista.html",
             {
                 "request": request,
                 "usuario": usuario,
@@ -134,18 +122,22 @@ async def postCadastro(
         )
 
 
-@router.get("/excluir/{id:int}", response_class=HTMLResponse)
-async def getExcluir(
+@router.get("/excluirartista/{id:int}", response_class=HTMLResponse)
+async def getExcluirArtista(
     request: Request,
     usuario: Usuario = Depends(validar_usuario_logado),
     id: int = Path(),
 ):
     if usuario:
         if usuario.admin:
-            usuario = UsuarioRepo.obterPorId(id)
+            artista = ArtistaRepo.obterPorId(id)
             return templates.TemplateResponse(
-                "usuario/excluir.html",
-                {"request": request, "usuario": usuario},
+                "artista/excluirartista.html",
+                {
+                   "request": request, 
+                   "usuario": usuario, 
+                   "artista": artista
+                },
             )
         else:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN)
@@ -153,8 +145,8 @@ async def getExcluir(
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
 
-@router.post("/excluir", response_class=HTMLResponse)
-async def postExcluir(
+@router.post("/excluirartista", response_class=HTMLResponse)
+async def postExcluirArtista(
     request: Request,
     usuario: Usuario = Depends(validar_usuario_logado),
     id: int = Form(0),

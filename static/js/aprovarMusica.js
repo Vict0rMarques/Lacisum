@@ -23,14 +23,8 @@ async function aprovarMusica(id) {
 function removerLinhaComAnimacao(id) {
     const linha = document.querySelector(`tr[data-id="${id}"]`);
     if (linha) {
-        const rect = linha.getBoundingClientRect();
-        linha.style.height = `${rect.height}px`;
-        void linha.offsetHeight;
-        linha.classList.add('fade-out');        
-        linha.addEventListener('animationend', () => {
-            linha.remove();
-            recarregarPagina();
-        });
+        linha.remove();
+        recarregarPagina();        
     }
 }
 
@@ -64,7 +58,7 @@ function recarregarPagina() {
 
 // Adicionar um evento de clique a todos os elementos <a> com classe "btn-success"
 document.addEventListener('DOMContentLoaded', (event) => {    
-    const botoes = document.querySelectorAll('button.btn-success');
+    const botoes = document.querySelectorAll('.btn-aprovar');
     botoes.forEach((botao) => {
         botao.addEventListener('click', (event) => {
             event.preventDefault();

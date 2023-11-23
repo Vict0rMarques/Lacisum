@@ -31,9 +31,10 @@ async def startup_event():
 
 @router.get("/listagem", response_class=HTMLResponse)
 async def getListagem(
-    request: Request,
+    request: Request, 
     pa: int = 1,
-    tp: int = 30,
+    tp: int = 16,
+    usuario: Usuario = Depends(validar_usuario_logado)
 ):
   estiloMusical = EstiloMusicalRepo.obterTodos()
   musicas = MusicaRepo.obterPagina(pa, tp)
@@ -42,13 +43,14 @@ async def getListagem(
   return templates.TemplateResponse(
     "playlist/playlist.html",
     {
-      "request": request,
+      "request": request, 
+      "usuario": usuario,
       "totalPaginas": totalPaginas,
       "musicas": musicas,
       "paginaAtual": pa,
       "tamanhoPagina": tp,
       "qtdeAprovar": qtdeAprovar,
-      "estilos": estiloMusical,
+      "estilos": estiloMusical
     },
   )
   
@@ -79,8 +81,8 @@ async def getNovaMusica(
 async def postNovaMusica(
     request: Request,
     nome: str = Form(""),
-    nomeArtista: str = Form(""),
-    nomeEstiloMusical: str = Form(""),
+    idUsuario: int = Form(0),
+    idEstiloMusical: int = Form(0),
     usuario: Usuario = Depends(validar_usuario_logado),
     capaMusica: UploadFile = File(...)
 ):
@@ -105,8 +107,8 @@ async def postNovaMusica(
         Musica(
             id=0,
             nome=nome,
-            nomeArtista=nomeArtista,
-            nomeEstiloMusical=nomeEstiloMusical,
+            idArtista=idUsuario,
+            idEstiloMusical=idEstiloMusical,
         )
     )
 
@@ -114,10 +116,7 @@ async def postNovaMusica(
         imagem_quadrada = transformar_em_quadrada(imagem)
         imagem_quadrada.save(f"static/img/Musicas/{nova_musica.id:04d}.jpg", "JPEG")
 
-    return templates.TemplateResponse(
-        "playlist/playlist.html",
-        {"request": request, "usuario": usuario},
-    )
+    return RedirectResponse("listagem", status_code=status.HTTP_303_SEE_OTHER)
 
 
 

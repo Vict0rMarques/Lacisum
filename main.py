@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
-#from repositories.AnuncioRepo import AnuncioRepo
-#from repositories.ArtistaRepo import ArtistaRepo
+from repositories.AnuncioRepo import AnuncioRepo
+from repositories.ArtistaRepo import ArtistaRepo
 #from repositories.ClubeRepo import ClubeRepo
 #from repositories.ComentarioRepo import ComentarioRepo
 from repositories.EstiloMusicalRepo import EstiloMusicalRepo
@@ -18,20 +18,23 @@ from routes.VitrineRoutes import router as VitrineRouter
 from routes.ClubeRoutes import router as ClubeRouter
 from routes.EventoRoutes import router as EventoRouter
 from routes.PlaylistRoutes import router as PlaylistRouter
+from routes.ArtistaRoutes import router as ArtistaRouter
 
 from util.exceptionHandler import configurar as configurarExcecoes
 
-#AnuncioRepo.criarTabela()
-#ArtistaRepo.criarTabela()
+AnuncioRepo.criarTabela()
+ArtistaRepo.criarTabela()
 #ClubeRepo.criarTabela()
 #ComentarioRepo.criarTabela()
 EstiloMusicalRepo.criarTabela()
 #EventoRepo.criarTabela()
 MusicaRepo.criarTabela()
 PublicacaoRepo.criarTabela()
+
 UsuarioRepo.criarTabela()
 UsuarioRepo.criarUsuarioAdmin()
 UsuarioRepo.criarUsuarioSemArtista()
+
 estilos = EstiloMusicalRepo.obterTodos()
 if len(estilos) == 0:
   EstiloMusicalRepo.inserirTodos()
@@ -49,6 +52,8 @@ app.include_router(ClubeRouter)
 app.include_router(EventoRouter)
 app.include_router(PlaylistRouter)
 app.include_router(UsuarioRouter)
+app.include_router(ArtistaRouter)
+
 
 # if __name__ == "__main__":
 #     uvicorn.run(app="main:app", reload=True)
